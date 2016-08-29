@@ -41,13 +41,13 @@ public class ExceptionUtils {
 
     //Numbers exceptions
 
-    public static void checkLongIsLong(Long num){
+    public static void checkLongIsLong(String num){
         if(!NumUtils.isLong(num)){
             throw new IllegalArgumentException("Value is not Long type.");
         }
     }
 
-    public static void checkIntIsInt(int num){
+    public static void checkIntIsInt(String num){
         if(!NumUtils.isInt(num)){
             throw new IllegalArgumentException("Value is not int type.");
         }
