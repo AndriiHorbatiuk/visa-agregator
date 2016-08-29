@@ -237,10 +237,11 @@ public class FileUtils {
                 String[] tempStringArray = line.split(SEPARATOR);
                 Request request = new Request(tempStringArray[0],tempStringArray[2]);
                 request.setRequestCountry(tempStringArray[3]);
+                request.setNumberOfPersonsInRequest(Integer.parseInt(tempStringArray[4]));
                 try {
                     request.setDateOfRequestCreation(Long.parseLong(tempStringArray[1],10));
-                    request.setStartTripDate(Long.parseLong(tempStringArray[4],10));
-                    request.setLastTripDate(Long.parseLong(tempStringArray[5],10));
+                    request.setStartTripDate(Long.parseLong(tempStringArray[5],10));
+                    request.setLastTripDate(Long.parseLong(tempStringArray[6],10));
                 }
                 catch (NumberFormatException e){
                     System.out.println("Check long type of numeric values. It is not long and couldn't be parsed.");

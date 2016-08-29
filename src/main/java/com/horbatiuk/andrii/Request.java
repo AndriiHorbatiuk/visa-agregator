@@ -82,7 +82,7 @@ public class Request implements Serializable {
         this.requestCountry = requestCountry;
     }
 
-    public void setNumberOfPersonsInRequest(byte numberOfPersonsInRequest) {
+    public void setNumberOfPersonsInRequest(int numberOfPersonsInRequest) {
         this.numberOfPersonsInRequest = numberOfPersonsInRequest;
     }
 

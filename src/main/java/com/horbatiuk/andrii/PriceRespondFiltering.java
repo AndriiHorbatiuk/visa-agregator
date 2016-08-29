@@ -16,8 +16,6 @@ public class PriceRespondFiltering {
     static void filterByPrice(String requestId, int fromNum, int toNum) {
         ExceptionUtils.checkStringWithExceptions(requestId);
         ExceptionUtils.checkObjectOnNull(PriceRespondUtils.getRespondIdListFromRequestId(requestId));
-        ExceptionUtils.checkIntIsInt(fromNum);
-        ExceptionUtils.checkIntIsInt(toNum);
 
         List<String> filteredList = new ArrayList<>();
         for (String priceRespondId : PriceRespondUtils.getRespondIdListFromRequestId(requestId)) {
