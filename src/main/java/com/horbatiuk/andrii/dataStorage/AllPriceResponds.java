@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by Andrey on 19.08.2016.
  */
-public final class AllPriceResponds implements Serializable {
+public final class AllPriceResponds implements DataInterface<PriceResponds>, Serializable {
 
     private static final long serialVersionUID = 6169497914097508729L;
     private static Map<String, PriceResponds> allPriceRespondsMap = new HashMap<>();
@@ -25,7 +25,17 @@ public final class AllPriceResponds implements Serializable {
         com.horbatiuk.andrii.dataStorage.AllPriceResponds.allPriceRespondsMap = allPriceRespondsMap;
     }
 
-    public static void addPriceRespondToDB(String s, PriceResponds pr){
-        AllPriceResponds.getAllPriceRespondsMap().put(s, pr);
+    public static void addPriceRespondToDB(String s, PriceResponds pr) {
+
+    }
+
+    @Override
+    public void addToDB(String id, PriceResponds object) {
+        AllPriceResponds.getAllPriceRespondsMap().put(id, object);
+    }
+
+    @Override
+    public void getFromDB(String id) {
+        AllPriceResponds.getAllPriceRespondsMap().get(id);
     }
 }
