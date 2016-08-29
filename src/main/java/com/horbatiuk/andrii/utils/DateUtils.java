@@ -9,7 +9,6 @@ import java.util.Calendar;
  */
 public class DateUtils {
     public static void convertMillisecondsToDate(Long milliSeconds){
-        ExceptionUtils.checkLongIsLong(milliSeconds);
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(milliSeconds);
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
