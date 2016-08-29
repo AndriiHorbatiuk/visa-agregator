@@ -30,7 +30,7 @@ public class Request implements Serializable {
         requestId = UUID.randomUUID().toString(); //Генерируем рендомный адйи
         dateOfRequestCreation = System.currentTimeMillis(); //Добавляем дату создания заявки
         AllRequests.getAllRequestsMap().put(requestId, this); //Добавляем ссылку на запрос в общее хранилище
-        UserUtils.checkUserNewRequest(userEmailInRequest, requestId);  //Проверяем существует ли пользователь с таким email, добавляем
+        UserUtils.addRequestToUserWithCheckingOfUserExistence(userEmailInRequest, requestId);  //Проверяем существует ли пользователь с таким email, добавляем
     }
 
     public Request(String requestId, String userEmailInRequest) {
@@ -43,7 +43,7 @@ public class Request implements Serializable {
         this.requestId = requestId; //Используем существующий айди
         dateOfRequestCreation = System.currentTimeMillis(); //Добавляем дату создания заявки
         AllRequests.getAllRequestsMap().put(requestId, this); //Добавляем ссылку на запрос в общее хранилище
-        UserUtils.checkUserNewRequest(userEmailInRequest, requestId);  //Проверяем существует ли пользователь с таким email, добавляем
+        UserUtils.addRequestToUserWithCheckingOfUserExistence(userEmailInRequest, requestId);  //Проверяем существует ли пользователь с таким email, добавляем
     }
 
     public String getRequestCountry() {

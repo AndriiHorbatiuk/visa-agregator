@@ -5,18 +5,18 @@ package com.horbatiuk.andrii.utils;
  */
 public class NumUtils {
 
-    public static boolean isLong(Long num){
+    public static boolean isLong(String num){
         try{
-            Long.parseLong((""+num));
+            Long.parseLong((num));
             return true;
         }catch (NumberFormatException e){
             return false;
         }
     }
 
-    public static boolean isInt(int num){
+    public static boolean isInt(String num){
         try{
-            Integer.parseInt((""+num));
+            Integer.parseInt((num));
             return true;
         }catch (NumberFormatException e){
             return false;

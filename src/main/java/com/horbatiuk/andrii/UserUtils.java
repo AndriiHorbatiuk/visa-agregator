@@ -17,7 +17,7 @@ public class UserUtils {
     }
 
     //Обработка нового запроса (с проверкой на существование пользователя)
-    static void checkUserNewRequest(String userEmailInRequest, String requestId) {
+    static void addRequestToUserWithCheckingOfUserExistence(String userEmailInRequest, String requestId) {
         ExceptionUtils.checkStringWithExceptions(userEmailInRequest);
         ExceptionUtils.checkStringWithExceptions(requestId);
 
