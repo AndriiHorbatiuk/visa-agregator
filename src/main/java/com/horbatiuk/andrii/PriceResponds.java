@@ -24,24 +24,24 @@ public final class PriceResponds implements Comparable<PriceResponds>, Serializa
         ExceptionUtils.checkStringOnNull(travelAgencyId);
         ExceptionUtils.checkStringOnEmpty(travelAgencyId);
         priceRespondId = UUID.randomUUID().toString(); //Generate random id
-        if(!TravelAgencyUtils.checkTravelAgencyExistence(travelAgencyId)){
-            throw new IllegalArgumentException("No such Travel Agency in DB. Travel Agency id: " + travelAgencyId);
-        }
-        if(!RequestUtils.checkRequestExistence(requestId)){
-            throw new IllegalArgumentException("No such request in DB. Request id: " + requestId);
-        }
-        if(price <= priceConstants.MINIMAL_PRICE || price > priceConstants.MAXIMAL_PRICE){
-            throw new IllegalArgumentException("Price should be more than " + priceConstants.MINIMAL_PRICE + " and less than " + priceConstants.MAXIMAL_PRICE);
-        }
+//        if(!TravelAgencyUtils.checkTravelAgencyExistence(travelAgencyId)){
+//            throw new IllegalArgumentException("No such Travel Agency in DB. Travel Agency id: " + travelAgencyId);
+//        }
+//        if(!RequestUtils.checkRequestExistence(requestId)){
+//            throw new IllegalArgumentException("No such request in DB. Request id: " + requestId);
+//        }
+//        if(price <= priceConstants.MINIMAL_PRICE || price > priceConstants.MAXIMAL_PRICE){
+//            throw new IllegalArgumentException("Price should be more than " + priceConstants.MINIMAL_PRICE + " and less than " + priceConstants.MAXIMAL_PRICE);
+//        }
 //        if(PriceRespondUtils.isRespondFromTravelAgency(travelAgencyId,requestId)){
 //            return; //I'm thinking about it
 //        }
         this.travelAgencyId = travelAgencyId;
         this.requestId = requestId;
         this.price = price;
-        AllPriceResponds.getAllPriceRespondsMap().put(priceRespondId,this); //Place itself to the list of all responds
-        RequestUtils.getRequestObjectFromId(requestId).getPriceRespondsIdList().add(priceRespondId); //Add respond to the request
-        TravelAgencyUtils.getTravelAgencyObjectFromId(travelAgencyId).getRespondsOfTravelAgency().add(priceRespondId); //Add respond to the travel agency responds
+//        AllPriceResponds.getAllPriceRespondsMap().put(priceRespondId,this); //Place itself to the list of all responds
+//        RequestUtils.getRequestObjectFromId(requestId).getPriceRespondsIdList().add(priceRespondId); //Add respond to the request
+//        TravelAgencyUtils.getTravelAgencyObjectFromId(travelAgencyId).getRespondsOfTravelAgency().add(priceRespondId); //Add respond to the travel agency responds
     }
 
     public String getTravelAgencyId() {

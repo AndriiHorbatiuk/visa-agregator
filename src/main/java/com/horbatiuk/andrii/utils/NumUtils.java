@@ -7,7 +7,7 @@ public class NumUtils {
 
     public static boolean isLong(String num){
         try{
-            Long.parseLong((num));
+            Long.parseLong(num);
             return true;
         }catch (NumberFormatException e){
             return false;
@@ -16,7 +16,7 @@ public class NumUtils {
 
     public static boolean isInt(String num){
         try{
-            Integer.parseInt((num));
+            Integer.parseInt(num);
             return true;
         }catch (NumberFormatException e){
             return false;

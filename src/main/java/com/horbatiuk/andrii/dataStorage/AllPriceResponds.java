@@ -24,4 +24,8 @@ public final class AllPriceResponds implements Serializable {
     public static void setAllPriceRespondsMap(Map<String, PriceResponds> allPriceRespondsMap) {
         com.horbatiuk.andrii.dataStorage.AllPriceResponds.allPriceRespondsMap = allPriceRespondsMap;
     }
+
+    public static void addPriceRespondToDB(String s, PriceResponds pr){
+        AllPriceResponds.getAllPriceRespondsMap().put(s, pr);
+    }
 }
