@@ -17,14 +17,14 @@ public class TravelAgencyUtils {
         return AllTravelAgencies.getAllTravelAgenciesMap().containsKey(travelAgencyId);
     }
 
-   public static void addPriceRespond(String requestId, String travelAgencyId, int price) throws NullPointerException, IllegalArgumentException {
+    public static void addPriceRespond(String requestId, String travelAgencyId, int price) {
         ExceptionUtils.checkStringWithExceptions(requestId);
         ExceptionUtils.checkStringWithExceptions(travelAgencyId);
 
         new PriceResponds(travelAgencyId, requestId, price);
     }
 
-    static TravelAgency getTravelAgencyObjectFromId(String travelAgencyId){
+    static TravelAgency getTravelAgencyObjectFromId(String travelAgencyId) {
         return AllTravelAgencies.getAllTravelAgenciesMap().get(travelAgencyId);
     }
 

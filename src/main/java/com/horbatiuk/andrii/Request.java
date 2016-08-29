@@ -22,7 +22,7 @@ public class Request implements Serializable {
     private long dateOfRequestCreation;
     private List<String> priceRespondsIdList = new ArrayList<>();
 
-    public Request(String userEmailInRequest) throws NullPointerException, IllegalArgumentException {
+    public Request(String userEmailInRequest) {
         ExceptionUtils.checkStringWithExceptions(userEmailInRequest);
         ExceptionUtils.checkStringIsEmail(userEmailInRequest);
 
@@ -33,10 +33,10 @@ public class Request implements Serializable {
         UserUtils.checkUserNewRequest(userEmailInRequest, requestId);  //Проверяем существует ли пользователь с таким email, добавляем
     }
 
-    public Request(String requestId, String userEmailInRequest) throws NullPointerException, IllegalArgumentException {
+    public Request(String requestId, String userEmailInRequest) {
         ExceptionUtils.checkStringWithExceptions(userEmailInRequest);
         ExceptionUtils.checkStringIsEmail(userEmailInRequest);
-        if(RequestUtils.checkRequestExistence(requestId)){
+        if (RequestUtils.checkRequestExistence(requestId)) {
             throw new IllegalArgumentException("Request with id " + requestId + "is already in DB.");
         }
         this.userEmailInRequest = userEmailInRequest;

@@ -10,7 +10,7 @@ import java.util.Comparator;
 class PriceRespondSorting {
 
 
-    static void sortPriceMinMax(String requestId) throws NullPointerException, IllegalArgumentException {
+    static void sortPriceMinMax(String requestId) {
 //        Сортирует цены по возрастанию
         ExceptionUtils.checkStringOnNull(requestId);
         ExceptionUtils.checkStringOnEmpty(requestId);
@@ -31,7 +31,7 @@ class PriceRespondSorting {
 
     }
 
-    static void sortPriceMaxMin(String requestId) throws NullPointerException, IllegalArgumentException {
+    static void sortPriceMaxMin(String requestId) {
 //      Сортирует цены по убыванию
         ExceptionUtils.checkStringOnNull(requestId);
         ExceptionUtils.checkStringOnEmpty(requestId);
@@ -49,7 +49,7 @@ class PriceRespondSorting {
         ; // return
     }
 
-    static void sortTravelAgencyNameAlphabet(String requestId) throws NullPointerException, IllegalArgumentException {
+    static void sortTravelAgencyNameAlphabet(String requestId) {
 //      Сортирует по имени агентства
         ExceptionUtils.checkStringOnNull(requestId);
         ExceptionUtils.checkStringOnEmpty(requestId);
@@ -74,7 +74,7 @@ class PriceRespondSorting {
         ; // return
     }
 
-    static void sortTravelAgencyStreetNameAlphabet(String requestId) throws NullPointerException, IllegalArgumentException {
+    static void sortTravelAgencyStreetNameAlphabet(String requestId) {
 //      Сортирует по имени улицы, на котором находится агентство
         ExceptionUtils.checkStringOnNull(requestId);
         ExceptionUtils.checkStringOnEmpty(requestId);
@@ -100,7 +100,7 @@ class PriceRespondSorting {
         // return
     }
 
-    static void sortMinMaxPriceTravelAgencyNameAlphabetStreetNameAlphabet(String requestId) throws NullPointerException, IllegalArgumentException {
+    static void sortMinMaxPriceTravelAgencyNameAlphabetStreetNameAlphabet(String requestId) {
 //      Сортирует по цене, с одинаковой ценой - по имени агентстваб с одинаковым именем - по названию улицы.
         ExceptionUtils.checkStringOnNull(requestId);
         ExceptionUtils.checkStringOnEmpty(requestId);

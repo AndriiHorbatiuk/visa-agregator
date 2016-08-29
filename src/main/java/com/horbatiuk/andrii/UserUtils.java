@@ -17,7 +17,7 @@ public class UserUtils {
     }
 
     //Обработка нового запроса (с проверкой на существование пользователя)
-    static void checkUserNewRequest(String userEmailInRequest, String requestId) throws NullPointerException, IllegalArgumentException {
+    static void checkUserNewRequest(String userEmailInRequest, String requestId) {
         ExceptionUtils.checkStringWithExceptions(userEmailInRequest);
         ExceptionUtils.checkStringWithExceptions(requestId);
 
@@ -25,20 +25,20 @@ public class UserUtils {
             addRequestToUser(requestId, userEmailInRequest);
         } else {
             new User(userEmailInRequest);
-            addRequestToUser(requestId,userEmailInRequest);
+            addRequestToUser(requestId, userEmailInRequest);
         }
     }
 
 //Добавляет запрос в список запросов пользователя
 
-    static void addRequestToUser(String requestId, String userId) throws NullPointerException, IllegalArgumentException {
+    static void addRequestToUser(String requestId, String userId) {
         ExceptionUtils.checkStringWithExceptions(userId);
         ExceptionUtils.checkStringWithExceptions(requestId);
 
         com.horbatiuk.andrii.UserUtils.getUserObjectFromId(userId).getUserRequestsIdList().add(requestId);
     }
 
-    static User getUserObjectFromId(String userId){
+    static User getUserObjectFromId(String userId) {
         return AllUsers.getAllUsersMap().get(userId);
     }
 
