@@ -1,7 +1,5 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllTravelAgencies;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,7 @@ public class TravelAgency implements Serializable{
         }
         this.travelAgencyEmail = travelAgencyEmail; // email = id
         this.travelAgencyName = travelAgencyName;
-        AllTravelAgencies.getAllTravelAgenciesMap().put(travelAgencyEmail,this); // Add itself to all travel agencies list
+//        AllTravelAgencies.getAllTravelAgenciesMap().put(travelAgencyEmail,this); // Add itself to all travel agencies list
     }
 
     //Methods

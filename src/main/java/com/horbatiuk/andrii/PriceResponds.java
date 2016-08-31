@@ -1,8 +1,6 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.constants.priceConstants;
-import com.horbatiuk.andrii.dataStorage.AllPriceResponds;
-import com.horbatiuk.andrii.dataStorage.AllTravelAgencies;
+import com.horbatiuk.andrii.dataStorage.AllTravelAgenciesData;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 import java.io.Serializable;
@@ -90,7 +88,7 @@ public final class PriceResponds implements Comparable<PriceResponds>, Serializa
     public String toString() {
         return "PriceResponds{" +
                 "price=" + price + " " +
-                "Travel Agency Name: " + AllTravelAgencies.getAllTravelAgenciesMap().get(travelAgencyId).getTravelAgencyName() +
+                "Travel Agency Name: " + AllTravelAgenciesData.ALL_TRAVEL_AGENCIES_DATA.getFromDB(travelAgencyId).getTravelAgencyName() +
                 '}';
     }
 }

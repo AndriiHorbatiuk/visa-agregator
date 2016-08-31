@@ -1,6 +1,7 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllPriceResponds;
+import com.horbatiuk.andrii.dataStorage.AllPriceRespondsData;
+import com.horbatiuk.andrii.dataStorage.AllRequestsData;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 import java.util.List;
@@ -11,26 +12,20 @@ import java.util.List;
 public class PriceRespondUtils {
     public static List<String> getRespondIdListFromRequestId(String requestId) {
         ExceptionUtils.checkStringWithExceptions(requestId);
-        ExceptionUtils.checkObjectOnNull(RequestUtils.getRequestObjectFromId(requestId));
-        ExceptionUtils.checkObjectOnNull(RequestUtils.getRequestObjectFromId(requestId).getPriceRespondsIdList());
+        ExceptionUtils.checkObjectOnNull(AllRequestsData.ALL_REQUESTS_DATA.getFromDB(requestId));
+        ExceptionUtils.checkObjectOnNull(AllRequestsData.ALL_REQUESTS_DATA.getFromDB(requestId).getPriceRespondsIdList());
 
-        return RequestUtils.getRequestObjectFromId(requestId).getPriceRespondsIdList();
+        return AllRequestsData.ALL_REQUESTS_DATA.getFromDB(requestId).getPriceRespondsIdList();
     }
 
     public static boolean isRespondFromTravelAgency(String travelAgencyId, String requestId) {
-        List<String> listOfResponds = RequestUtils.getRequestObjectFromId(requestId).getPriceRespondsIdList();
+        List<String> listOfResponds = AllRequestsData.ALL_REQUESTS_DATA.getFromDB(requestId).getPriceRespondsIdList();
         for (String s : listOfResponds) {
-            if (com.horbatiuk.andrii.PriceRespondUtils.getPriceRespondObjectFromId(s).getTravelAgencyId().equals(travelAgencyId)) {
+            if (AllPriceRespondsData.ALL_PRICE_RESPONDS_DATA.getFromDB(s).getTravelAgencyId().equals(travelAgencyId)) {
                 return true;
             }
         }
         return false;
-
     }
-
-    static PriceResponds getPriceRespondObjectFromId(String priceRespondId) {
-        return AllPriceResponds.getAllPriceRespondsMap().get(priceRespondId);
-    }
-
 }
 

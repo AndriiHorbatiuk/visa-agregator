@@ -9,4 +9,6 @@ public interface DataInterface<T> {
     void addToDB(T object);
 
     T getFromDB(String id);
+
+    void setMap(Object o);
 }

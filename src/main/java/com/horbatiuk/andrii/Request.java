@@ -1,6 +1,5 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllRequests;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 import java.io.Serializable;
@@ -37,7 +36,7 @@ public class Request implements Serializable {
         ExceptionUtils.checkStringWithExceptions(userEmailInRequest);
         ExceptionUtils.checkStringIsEmail(userEmailInRequest);
         if (RequestUtils.checkRequestExistence(requestId)) {
-            throw new IllegalArgumentException("Request with id " + requestId + "is already in DB.");
+            throw new IllegalArgumentException("Request with id " + requestId + " is already in DB.");
         }
         this.userEmailInRequest = userEmailInRequest;
         this.requestId = requestId; //Используем существующий айди

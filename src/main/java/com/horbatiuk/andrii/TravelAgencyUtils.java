@@ -1,6 +1,6 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllTravelAgencies;
+import com.horbatiuk.andrii.dataStorage.AllTravelAgenciesData;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 import java.util.Scanner;
@@ -11,10 +11,8 @@ import java.util.Scanner;
 public class TravelAgencyUtils {
 
     static boolean checkTravelAgencyExistence(String travelAgencyId) {
-        //@TODO Подумать как сделать через метод доступ к хешмепу
         ExceptionUtils.checkStringWithExceptions(travelAgencyId);
-
-        return AllTravelAgencies.getAllTravelAgenciesMap().containsKey(travelAgencyId);
+        return AllTravelAgenciesData.ALL_TRAVEL_AGENCIES_DATA.getTravelAgenciesMap().containsKey(travelAgencyId);
     }
 
     public static void addPriceRespond(String requestId, String travelAgencyId, int price) {
@@ -22,10 +20,7 @@ public class TravelAgencyUtils {
         ExceptionUtils.checkStringWithExceptions(travelAgencyId);
 
         new PriceResponds(travelAgencyId, requestId, price);
-    }
-
-    static TravelAgency getTravelAgencyObjectFromId(String travelAgencyId) {
-        return AllTravelAgencies.getAllTravelAgenciesMap().get(travelAgencyId);
+//        @TODO нужен код по добавлению ответа в бд ответов
     }
 
     public static int getPrice() {

@@ -1,21 +1,23 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllPriceResponds;
-import com.horbatiuk.andrii.dataStorage.AllRequests;
-import com.horbatiuk.andrii.dataStorage.AllTravelAgencies;
-import com.horbatiuk.andrii.dataStorage.AllUsers;
-import com.horbatiuk.andrii.utils.FileUtils;
+import com.horbatiuk.andrii.dataStorage.AllRequestsData;
+import com.horbatiuk.andrii.dataStorageUtils.BinaryFileRead;
+import com.horbatiuk.andrii.dataStorageUtils.BinaryRequests;
+import com.horbatiuk.andrii.dataStorageUtils.FileUtils;
 
 /**
  * Created by Andrey on 11.08.2016.
  */
 public class Runner {
     public static void main(String[] args) {
-        FileUtils.readAllDataFromFiles();
-        System.out.println(AllRequests.getAllRequestsMap().size());
-        System.out.println(AllUsers.getAllUsersMap().size());
-        System.out.println(AllPriceResponds.getAllPriceRespondsMap().size());
-        System.out.println(AllTravelAgencies.getAllTravelAgenciesMap().size());
+
+        BinaryFileRead.readFromBinaryFile("allRequests_new.txt",new BinaryRequests());
+        System.out.println(AllRequestsData.ALL_REQUESTS_DATA.requestsMap.size());
+//        FileUtils.readAllDataFromFiles();
+//        System.out.println(AllRequestsData.ALL_REQUESTS_DATA.size());
+//        System.out.println(AllUsers.getAllUsersMap().size());
+//        System.out.println(AllPriceResponds.getAllPriceRespondsMap().size());
+//        System.out.println(AllTravelAgencies.getAllTravelAgenciesMap().size());
 
 //        FileUtils.readAllRequestsFromReadableFile();
 //        FileUtils.readAllUsersFromReadableFile();
@@ -47,7 +49,6 @@ public class Runner {
 //            }
 //            it.remove(); // avoids a ConcurrentModificationException
 //        }
-//@TODO Нужно ли делать обращение по id обьекта через метод или запрашивать через геттер у хешмепа?
 
     }
 }

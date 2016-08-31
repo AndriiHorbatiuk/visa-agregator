@@ -2,6 +2,7 @@ package com.horbatiuk.andrii.dataStorage;
 
 import com.horbatiuk.andrii.User;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -11,7 +12,16 @@ public enum AllUsersData implements DataInterface<User> {
     ALL_USERS_DATA;
 
 
-    private Map<String, User> userMap;
+    private Map<String, User> userMap = new HashMap<>();
+
+    public Map<String, User> getUserMap() {
+        return new HashMap<>(userMap);
+    }
+
+    @Override
+    public void setMap(Object object) {
+        userMap = (Map<String, User>) object;
+    }
 
     @Override
     public void addToDB(User object) {

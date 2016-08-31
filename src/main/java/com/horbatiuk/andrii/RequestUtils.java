@@ -1,6 +1,6 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllRequests;
+import com.horbatiuk.andrii.dataStorage.AllRequestsData;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 /**
@@ -12,11 +12,7 @@ public class RequestUtils {
         ExceptionUtils.checkStringOnNull(requestId);
         ExceptionUtils.checkStringOnEmpty(requestId);
 
-        return AllRequests.getAllRequestsMap().containsKey(requestId);
-    }
-
-    static Request getRequestObjectFromId(String requestId){
-        return AllRequests.getAllRequestsMap().get(requestId);
+        return AllRequestsData.ALL_REQUESTS_DATA.getRequestsMap().containsKey(requestId);
     }
 
     void sendRequestToTravelAgencies() {

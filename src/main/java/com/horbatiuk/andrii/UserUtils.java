@@ -1,6 +1,6 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllUsers;
+import com.horbatiuk.andrii.dataStorage.AllUsersData;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 /**
@@ -13,7 +13,7 @@ public class UserUtils {
     static boolean checkUserExistence(String userId) {
         ExceptionUtils.checkStringWithExceptions(userId);
 
-        return AllUsers.getAllUsersMap().containsKey(userId);
+        return AllUsersData.ALL_USERS_DATA.getUserMap().containsKey(userId);
     }
 
     //Обработка нового запроса (с проверкой на существование пользователя)
@@ -35,11 +35,6 @@ public class UserUtils {
         ExceptionUtils.checkStringWithExceptions(userId);
         ExceptionUtils.checkStringWithExceptions(requestId);
 
-        com.horbatiuk.andrii.UserUtils.getUserObjectFromId(userId).getUserRequestsIdList().add(requestId);
+        AllUsersData.ALL_USERS_DATA.getFromDB(userId).getUserRequestsIdList().add(requestId);
     }
-
-    static User getUserObjectFromId(String userId) {
-        return AllUsers.getAllUsersMap().get(userId);
-    }
-
 }

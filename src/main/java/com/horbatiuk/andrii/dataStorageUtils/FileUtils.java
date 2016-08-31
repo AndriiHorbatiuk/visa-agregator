@@ -1,13 +1,9 @@
-package com.horbatiuk.andrii.utils;
+package com.horbatiuk.andrii.dataStorageUtils;
 
 import com.horbatiuk.andrii.PriceResponds;
 import com.horbatiuk.andrii.Request;
 import com.horbatiuk.andrii.TravelAgency;
 import com.horbatiuk.andrii.User;
-import com.horbatiuk.andrii.dataStorage.AllPriceResponds;
-import com.horbatiuk.andrii.dataStorage.AllRequests;
-import com.horbatiuk.andrii.dataStorage.AllTravelAgencies;
-import com.horbatiuk.andrii.dataStorage.AllUsers;
 
 import java.io.*;
 import java.util.Iterator;
@@ -35,13 +31,13 @@ public class FileUtils {
     public static void writeDataToFiles() {
         //Записываем в файл состояние программы
 
-        writeAllUsersToFile();
-        writeAllPriceRespondsToFile();
-        writeAllRequestsToFile();
-        writeAllTravelAgenciesToFile();
+//        writeAllUsersToFile();
+//        writeAllPriceRespondsToFile();
+//        writeAllRequestsToFile();
+//        writeAllTravelAgenciesToFile();
     }
 
-    public static void writeAllPriceRespondsToFile() {
+   /* public static void writeAllPriceRespondsToFile() {
         try (ObjectOutputStream os = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(ALL_PRICE_RESPONDS_BINARY)))) {
             os.writeObject(AllPriceResponds.getAllPriceRespondsMap());
         } catch (FileNotFoundException e) {
@@ -267,5 +263,5 @@ public class FileUtils {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }

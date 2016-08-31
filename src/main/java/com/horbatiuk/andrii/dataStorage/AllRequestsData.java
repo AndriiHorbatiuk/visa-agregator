@@ -3,6 +3,7 @@ package com.horbatiuk.andrii.dataStorage;
 import com.horbatiuk.andrii.Request;
 import com.horbatiuk.andrii.User;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,7 +13,16 @@ public enum AllRequestsData implements DataInterface<Request> {
     ALL_REQUESTS_DATA;
 
 
-    private Map<String, Request> requestsMap;
+    public Map<String, Request> requestsMap = new HashMap<>();
+
+    public Map<String, Request> getRequestsMap() {
+        return new HashMap<>(requestsMap);
+    }
+
+    @Override
+    public  void setMap(Object object) {
+        requestsMap = (Map<String, Request>) object;
+    }
 
     @Override
     public void addToDB(Request object) {

@@ -1,6 +1,5 @@
 package com.horbatiuk.andrii;
 
-import com.horbatiuk.andrii.dataStorage.AllUsers;
 import com.horbatiuk.andrii.utils.ExceptionUtils;
 
 import java.io.Serializable;
@@ -22,7 +21,7 @@ public class User implements Serializable {
             throw new IllegalArgumentException("User with this email is already in DB. Email is: " + userEmail);
         }
         this.userEmail = userEmail;
-        AllUsers.getAllUsersMap().put(userEmail, this);
+//        AllUsers.getAllUsersMap().put(userEmail, this);
 
     }
 
