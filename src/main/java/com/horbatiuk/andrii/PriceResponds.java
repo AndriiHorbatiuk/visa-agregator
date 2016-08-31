@@ -56,6 +56,10 @@ public final class PriceResponds implements Comparable<PriceResponds>, Serializa
         return price;
     }
 
+    public String getPriceRespondId() {
+        return priceRespondId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by Andrey on 17.08.2016.
  */
-public final class AllUsers implements DataInterface<User>, Serializable {
+public final class AllUsers implements Serializable {
     private static final long serialVersionUID = 2270591637074953797L;
     private static Map<String, User> allUsersMap = new HashMap<>();
 
@@ -22,15 +22,5 @@ public final class AllUsers implements DataInterface<User>, Serializable {
 
     public static void setAllUsersMap(Map<String, User> allUsersMap) {
         com.horbatiuk.andrii.dataStorage.AllUsers.allUsersMap = allUsersMap;
-    }
-
-    @Override
-    public void addToDB(String id, User object) {
-        AllUsers.getAllUsersMap().put(id, object);
-    }
-
-    @Override
-    public void getFromDB(String id) {
-        AllUsers.getAllUsersMap().get(id);
     }
 }
