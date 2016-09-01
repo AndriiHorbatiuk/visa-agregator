@@ -15,4 +15,9 @@ public class BinaryRequests implements DataTypeInterface {
     public void setMap(Object o) {
         AllRequestsData.ALL_REQUESTS_DATA.setMap(o);
     }
+
+    @Override
+    public Map<String, Request> getMap() {
+        return AllRequestsData.ALL_REQUESTS_DATA.getRequestsMap();
+    }
 }

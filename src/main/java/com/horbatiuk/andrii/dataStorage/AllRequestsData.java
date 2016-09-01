@@ -13,7 +13,7 @@ public enum AllRequestsData implements DataInterface<Request> {
     ALL_REQUESTS_DATA;
 
 
-    public Map<String, Request> requestsMap = new HashMap<>();
+    private Map<String, Request> requestsMap = new HashMap<>();
 
     public Map<String, Request> getRequestsMap() {
         return new HashMap<>(requestsMap);

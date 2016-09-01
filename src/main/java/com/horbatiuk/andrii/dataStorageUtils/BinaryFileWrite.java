@@ -10,9 +10,9 @@ public final class BinaryFileWrite {
     private BinaryFileWrite() {
     }
 
-    public static <T, E> void writeToBinaryFile(Map<T, E> map, String filepath) {
+    public static <T, E> void writeToBinaryFile(String filepath, DataTypeInterface dti) {
         try (ObjectOutputStream os = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(filepath)))) {
-            os.writeObject(map);
+            os.writeObject(dti.getMap());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

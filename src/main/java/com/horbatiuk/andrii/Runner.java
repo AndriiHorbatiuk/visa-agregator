@@ -1,9 +1,13 @@
 package com.horbatiuk.andrii;
 
+import com.horbatiuk.andrii.dataStorage.AllPriceRespondsData;
 import com.horbatiuk.andrii.dataStorage.AllRequestsData;
-import com.horbatiuk.andrii.dataStorageUtils.BinaryFileRead;
-import com.horbatiuk.andrii.dataStorageUtils.BinaryRequests;
-import com.horbatiuk.andrii.dataStorageUtils.FileUtils;
+import com.horbatiuk.andrii.dataStorage.AllUsersData;
+import com.horbatiuk.andrii.dataStorageUtils.*;
+import com.horbatiuk.andrii.prsorting.ComparatorByPriceDescending;
+import com.horbatiuk.andrii.prsorting.Sortet;
+
+import java.util.Map;
 
 /**
  * Created by Andrey on 11.08.2016.
@@ -11,8 +15,20 @@ import com.horbatiuk.andrii.dataStorageUtils.FileUtils;
 public class Runner {
     public static void main(String[] args) {
 
-        BinaryFileRead.readFromBinaryFile("allRequests_new.txt",new BinaryRequests());
-        System.out.println(AllRequestsData.ALL_REQUESTS_DATA.requestsMap.size());
+        BinaryFileRead.readFromBinaryFile("allPriceResponds_new.txt", new BinaryPriceResponds());
+        BinaryFileRead.readFromBinaryFile("allRequests_new.txt", new BinaryRequests());
+        BinaryFileRead.readFromBinaryFile("allUsers_new.txt", new BinaryUsers());
+        BinaryFileRead.readFromBinaryFile("allTravelAgencies_new.txt", new BinaryTravelAgencies());
+        System.out.println(AllUsersData.ALL_USERS_DATA.getUserMap().size());
+        for (Map.Entry<String, Request> entry : AllRequestsData.ALL_REQUESTS_DATA.getRequestsMap().entrySet()
+                ) {
+            if (entry.getValue().getPriceRespondsIdList().size() > 4){
+                System.out.println(entry.getKey());
+                System.out.println(Sortet.sorter(entry.getValue().getPriceRespondsIdList(), new ComparatorByPriceDescending()));
+            }
+        }
+
+//        System.out.println(Sortet.sorter());
 //        FileUtils.readAllDataFromFiles();
 //        System.out.println(AllRequestsData.ALL_REQUESTS_DATA.size());
 //        System.out.println(AllUsers.getAllUsersMap().size());

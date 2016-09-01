@@ -15,6 +15,9 @@ public enum AllPriceRespondsData implements DataInterface<PriceResponds> {
 
     private Map<String, PriceResponds> priceRespondsMap = new HashMap<>();
 
+    public Map<String, PriceResponds> getPriceRespondsMap() {
+        return new HashMap<>(priceRespondsMap);
+    }
 
     @Override
     public void setMap(Object object) {
